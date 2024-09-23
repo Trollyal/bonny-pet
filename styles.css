@@ -12,6 +12,7 @@
   --brown-dark: #837158;
   --orange-dark: #FEC32D;
   --blue-dark: #00ADF1;
+  --blue-light: #71d7ff;
 
 
   box-sizing: border-box;
@@ -53,10 +54,18 @@ body {
   padding: 0;
   height: 100%;
   width: 100%;
+  overflow: hidden;
 }
 
-body>section {
-  margin-top: var(--supa-space)
+#content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-items: stretch;
+  align-items: flex-start;
+  gap: var(--supa-space);
+  overflow-y: auto;
 }
 
 #bubble-left {
@@ -76,11 +85,11 @@ body>section {
   aspect-ratio: 1;
   height: 80vh;
   border-radius: 50%;
-  background-color: var(--orange-dark);
+  background-color: var(--blue-light);
   top: 0;
   right: 0;
   transform: translate(50%, -50%);
-  z-index: -1;
+  z-index: -2;
 }
 
 header {
@@ -90,8 +99,6 @@ header {
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  height: 80vh;
-  overflow: hidden;
 }
 
 header h1 {
@@ -105,25 +112,27 @@ header #logo {
 }
 
 header article {
+  width: 100%;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  align-items: space-around;
+  gap: var(--mega-space);
+  align-items: flex-start;
+  margin-top: var(--supa-space);
 }
 
 header article .service {
-  margin-top: var(--supa-space);
-  flex: 1 0 200px;
+  flex: 0 0 200px;
   display: flex;
   flex-flow: column;
   align-items: center;
   text-align: center;
-  gap: 0;
 }
 
 header article .service img {
   height: 6rem;
   width: auto;
+  margin-bottom: var(--space);
 }
 
 header article .service span {
@@ -159,7 +168,7 @@ section#about {
   justify-content: center;
   padding: 30px 0px;
   border-radius: 400px;
-  background-color: var(--brown-light);
+  /*background-color: var(--brown-light);*/
 }
 
 section#about p {
@@ -171,7 +180,6 @@ section#about p {
 
 section#socials {
   position: relative;
-  overflow: hidden;
   width: 100%;
   display: flex;
   flex-flow: column;
@@ -180,7 +188,6 @@ section#socials {
 
 section#socials article {
   width: 100%;
-  overflow: hidden;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -195,7 +202,7 @@ footer {
   align-items: stretch;
   gap: var(--small-space);
   margin-top: var(--supa-space);
-  overflow: hidden;
+  width: 100%;
 }
 
 footer h3 {
