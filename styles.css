@@ -4,6 +4,7 @@
   --base-unit: 20px;
   --small-space: calc(var(--base-unit) / 2);
   --space: var(--base-unit);
+  --medium-large-space: calc(var(--base-unit) * 1.5);
   --large-space: calc(var(--base-unit) * 2);
   --mega-space: calc(var(--base-unit) * 4);
   --supa-space: calc(var(--base-unit) * 8);
@@ -11,15 +12,19 @@
   --brown-light: #FBF4EB;
   --brown-dark: #837158;
   --orange-dark: #FEC32D;
-  --blue-dark: #00ADF1;
-  --blue-light: #71d7ff;
+  --blue-dark: #0297d2;
+  --blue-light: #ddf5ff;
 
 
   box-sizing: border-box;
   font-family: 'Noto Sans', 'serif';
 }
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   margin: 0;
   line-height: normal;
   color: var(--brown-dark);
@@ -33,6 +38,7 @@ h1 {
 h2 {
   font-family: 'Dancing Script', 'serif';
   font-size: 2rem;
+  opacity: 0.75;
 }
 
 h3 {
@@ -55,6 +61,7 @@ body {
   height: 100%;
   width: 100%;
   overflow: hidden;
+  text-align: center;
 }
 
 #content {
@@ -75,7 +82,7 @@ body {
   aspect-ratio: 1;
   height: 80vh;
   border-radius: 50%;
-  background-color: var(--brown-light);
+  background-color: var(--blue-light);
   transform: translate(-40%, -20%);
   z-index: -1;
 }
@@ -85,11 +92,21 @@ body {
   aspect-ratio: 1;
   height: 80vh;
   border-radius: 50%;
-  background-color: var(--blue-light);
+  background-color: var(--orange-dark);
   top: 0;
   right: 0;
   transform: translate(50%, -50%);
   z-index: -2;
+}
+
+@media only screen and (max-width: 800px) {
+  #bubble-right {
+    transform: translate(50%, -80%);
+  }
+
+  #bubble-left {
+    transform: translate(-40%, -60%);
+  }
 }
 
 header {
@@ -168,7 +185,6 @@ section#about {
   justify-content: center;
   padding: 30px 0px;
   border-radius: 400px;
-  /*background-color: var(--brown-light);*/
 }
 
 section#about p {
@@ -198,54 +214,53 @@ section#socials article {
 footer {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  justify-content: center;
   align-items: stretch;
-  gap: var(--small-space);
-  margin-top: var(--supa-space);
+  gap: var(--space);
   width: 100%;
-}
-
-footer h3 {
-  color: white;
-  margin-top: 1rem;
+  margin-bottom: var(--space);
 }
 
 footer .map {
   border: none;
   border-radius: var(--base-unit);
   width: 100%;
-  max-width: 400px;
   height: 400px;
   box-shadow: 0px 25px 25px -20px rgba(0, 0, 0, 0.3);
   outline: none;
 }
 
 footer .shop {
-  flex: 1 1 400px;
+  flex: 0 1 90%;
+  min-width: 300px;
+  max-width: 500px;
   display: flex;
   flex-flow: column;
-  padding-bottom: var(--space);
+  padding: var(--medium-large-space);
   color: white;
   gap: var(--space);
-  border: 10px solid white;
+  border-radius: 36px;
 }
 
 footer .shop.left {
   align-items: flex-start;
-  padding-left: calc(var(--space) * 1.25);
-  background-color: var(--brown-dark);
-  border-radius: 0px 400px 400px 0px;
-  margin-left: -10px;
+  background-color: var(--brown-light);
+  color: var(--brown-dark) !important;
 }
 
 footer .shop.right {
   align-items: flex-end;
-  padding-right: var(--space);
-  background-color: var(--blue-dark);
-  border-radius: 400px 0px 0px 400px;
-  margin-right: -10px;
+  background-color: var(--blue-light);
+  color: var(--blue-dark);
 }
 
+footer .shop.right h3 {
+  color: var(--blue-dark);
+}
+
+footer .shop a {
+  color: currentColor;
+}
 
 footer .opening-hours {
   text-align: left;
@@ -259,10 +274,6 @@ footer .shop .contact {
   display: flex;
   flex-flow: row wrap;
   gap: var(--small-space);
-}
-
-footer a {
-  color: white;
 }
 
 footer .divider {
