@@ -155,6 +155,7 @@ header article .service img {
 header article .service span {
   font-size: .9rem;
   margin: 0;
+  opacity: 0.65;
 }
 
 section#brands {
